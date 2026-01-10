@@ -1,16 +1,20 @@
 package com.dgama.banco.modelo;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 public class Pessoa {
 
     private String nome;
     private String documento;
-    private Double rendimentoAnual;
+    private BigDecimal rendimentoAnual;
     private TipoPessoa tipo = TipoPessoa.FISICA;
+    private LocalDateTime dataUltimaAtualizacao = LocalDateTime.now();
 
 
-    public Double getRendimentoAnual(double v) {return rendimentoAnual;}
+    public BigDecimal getRendimentoAnual(BigDecimal d) {return rendimentoAnual;}
 
-    public void setRendimentoAnual(Double rendimentoAnual) {this.rendimentoAnual = rendimentoAnual;}
+    public void setRendimentoAnual(BigDecimal rendimentoAnual) {this.rendimentoAnual = rendimentoAnual;}
 
     public String getNome() {return nome;}
 
@@ -30,4 +34,11 @@ public class Pessoa {
 
     public void setTipo(TipoPessoa tipo){this.tipo = tipo;}
 
+    public BigDecimal getRendimentoAnual() {return rendimentoAnual;}
+
+    public LocalDateTime getDataUltimaAtualizacao() {return dataUltimaAtualizacao;}
+
+    public void setDataUltimaAtualizacao(LocalDateTime dataUltimaAtualizacao) {
+        this.dataUltimaAtualizacao = dataUltimaAtualizacao;
+    }
 }

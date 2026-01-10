@@ -7,6 +7,8 @@ import com.dgama.banco.modelo.pagamento.Boleto;
 import com.dgama.banco.modelo.pagamento.DocumentoEstornavel;
 import com.dgama.banco.modelo.pagamento.Holerite;
 
+import java.math.BigDecimal;
+
 public class Principal {
 
     public static void main(String[] args) throws IllegalAccessException {
@@ -14,7 +16,7 @@ public class Principal {
         Pessoa titular1 = new Pessoa();
         titular1.setNome("Maria Abadia");
         titular1.setDocumento("111.222.333-55");
-        titular1.getRendimentoAnual(15_000d);
+        titular1.getRendimentoAnual(new BigDecimal("15000"));
 
         Pessoa  titular2 = new Pessoa();
         titular2.setNome("José Manoel");
@@ -22,24 +24,24 @@ public class Principal {
 
 
         ContaInvestimento minhaConta = new ContaInvestimento(titular1,0001,1000);
-        ContaEspecial suaConta = new ContaEspecial(titular2,0001,1001,50_000);
+        ContaEspecial suaConta = new ContaEspecial(titular2,0001,1001,new BigDecimal("50000"));
 
         CaixaEletronico caixaEletronico = new CaixaEletronico();
 
        try {
-           minhaConta.depositar(30_000);
-           minhaConta.sacar(5_000, 10);
+           minhaConta.depositar(new BigDecimal("30000"));
+           minhaConta.sacar(new BigDecimal("5000"), new BigDecimal("10"));
 
-           suaConta.depositar(30_000);
+           suaConta.depositar(new BigDecimal("30000"));
            suaConta.debitarTarifaMensal();
 
-           minhaConta.creditarRendimentos(0.8);
+           minhaConta.creditarRendimentos(new BigDecimal("0.8"));
            minhaConta.debitarTarifaMensal();
 
-           Holerite salarioFuncionario = new Holerite(titular1, 800, 40);
+           Holerite salarioFuncionario = new Holerite(titular1, new BigDecimal("800"), 40);
            caixaEletronico.pagar(salarioFuncionario, minhaConta);
 
-           DocumentoEstornavel boletoEscola = new Boleto(titular2, 200);
+           DocumentoEstornavel boletoEscola = new Boleto(titular2, new BigDecimal("200"));
            caixaEletronico.pagar(boletoEscola, minhaConta);
 
            //caixaEletronico.estornarPagamento(boletoEscola, minhaConta);

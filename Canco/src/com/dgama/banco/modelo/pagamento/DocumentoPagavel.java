@@ -1,10 +1,11 @@
 package com.dgama.banco.modelo.pagamento;
 
+import java.math.BigDecimal;
 import java.sql.SQLOutput;
 
 public interface DocumentoPagavel {
 
-    double getValorTotal();
+    BigDecimal getValorTotal();
     boolean estaPago();
     void quitarPagamento();
 
