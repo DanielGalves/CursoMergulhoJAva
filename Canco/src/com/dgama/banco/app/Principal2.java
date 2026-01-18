@@ -4,7 +4,9 @@ import com.dgama.banco.modelo.Pessoa;
 import org.w3c.dom.ls.LSOutput;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Principal2 {
 
@@ -15,22 +17,23 @@ public class Principal2 {
         Pessoa pessoa3 = new Pessoa("José Bigorna", "828282828282");
 
 
-       List<Pessoa> pessoas = new ArrayList<>();
+       //List<Pessoa> pessoas = new ArrayList<>();
+        Set<Pessoa> pessoas = new HashSet<>();
         pessoas.add(pessoa1);
         pessoas.add(pessoa2);
         pessoas.add(pessoa3);
 
         //System.out.println(pessoas);
 
-        Pessoa pessoa4 = pessoas.get(2);
+        //Pessoa pessoa4 = pessoas.get(2);
         //System.out.println(pessoa4);
         // for (int i = 0; i< pessoas.size(); i++){
         //    System.out.println(pessoas.get(i).getNome());
         //}
 
-       // for (Pessoa pessoaFor : pessoas){
-       //     System.out.println(pessoaFor.getNome());
-       // }
+        for (Pessoa pessoaFor : pessoas){
+            System.out.println(pessoaFor.getNome());
+        }
 
 
 
@@ -38,6 +41,6 @@ public class Principal2 {
         System.out.println(existe);
 
         Pessoa pessoa5 = new Pessoa("JOão da Silva", "123456789");
-        System.out.println(pessoa1.equals(pessoa5));
+        //System.out.println(pessoa1.equals(pessoa5));
     }
 }
